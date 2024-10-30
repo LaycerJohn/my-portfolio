@@ -1,0 +1,336 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #e0e0e0;
+    background: #0f0f0f;
+    overflow-x: hidden;
+}
+
+/* Animated Background */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(15,15,15,0.8), #0f0f0f 60%);
+    animation: pulsate 6s ease-in-out infinite alternate;
+    z-index: -1;
+}
+
+@keyframes pulsate {
+    0% { opacity: 0.9; transform: scale(1); }
+    100% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* Header */
+header {
+    background: rgba(25, 25, 25, 0.9);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav ul li a {
+    color: #a0e7e5;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: #f79d65;
+}
+
+/* Section Styling */
+section {
+    padding: 80px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #f79d65;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 1.8rem;
+}
+
+/* Animated Background Overlay for Sections */
+section::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: -100px;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.05), rgba(0,0,0,0));
+    z-index: -1;
+    animation: rotate 10s linear infinite;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(360deg); }
+}
+
+/* About Section */
+.about-container {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    gap: 40px; /* Space between photo and text */
+    justify-content: center; /* Center the entire content */
+    margin-top: 20px; /* Margin on top */
+    max-width: 900px; /* Optional: limit the width of the entire section */
+    margin: 20px auto; /* Centers the container */
+}
+
+.about-photo-container {
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center items horizontally */
+    text-align: center; /* Center the text of the resume icon */
+}
+
+.about-photo {
+    width: 300px; /* Adjust as necessary */
+    height: auto; /* Keep height automatic for aspect ratio */
+    border-radius: 50px; /* Slightly rounded corners */
+    border: 3px solid #00adb5;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+}
+
+.about-photo:hover {
+    transform: scale(1.1) rotate(5deg);
+    border-color: #f79d65;
+}
+
+.about-text {
+    max-width: 600px;
+    text-align: left;
+}
+
+.resume {
+    margin-top: 10px; /* Adjust spacing to place it directly below the photo */
+}
+
+.resume-icon {
+    color: #f79d65; /* Icon color */
+    text-decoration: none;
+    font-size: 1.2rem; /* Adjust size as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center icon and text */
+    gap: 8px; /* Space between icon and text */
+    transition: color 0.3s ease;
+}
+
+.resume-icon:hover {
+    color: #a0e7e5; /* Hover color */
+}
+
+.skills {
+    margin-top: 20px;
+}
+
+.skill-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #a0e7e5;
+    font-size: 2em;
+    transition: transform 0.3s, color 0.3s;
+}
+
+.skill:hover {
+    transform: scale(1.15);
+    color: #f79d65;
+}
+
+.skill span {
+    margin-top: 8px;
+    font-size: 0.8em;
+}
+
+
+
+
+/* Projects Section */
+.project {
+    display: flex;
+    align-items: flex-start; /* Align items to the start */
+    background: #222;
+    padding: 20px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+    position: relative; /* Added for positioning the GitHub icon */
+}
+
+.project h3 {
+    font-size: 1.3rem;
+    color: #f79d65; /* Change this to your desired color for the certificate title */
+    margin-bottom: 5px; /* Adds space below the title */
+}
+
+.project p {
+    margin-left: 10px; /* Slight indentation for the date/source */
+    font-style: italic;
+    color: #a0e7e5; /* Change this to your desired color for the date/source */
+    margin-top: 0; /* Reset top margin for consistency */
+}
+
+.project-image {
+    width: 50%;
+    border-radius: 5px;
+    margin-right: 20px;
+}
+
+.project-info {
+    text-align: left;
+    color: #ddd;
+}
+
+.github-container {
+    position: absolute; /* Positioning the icon absolutely */
+    bottom: 10px; /* Space from the bottom */
+    right: 50px; /* Space from the right */
+}
+
+.github-link {
+    color: #a0e7e5; /* Icon color */
+    font-size: 1.5rem; /* Icon size */
+    transition: color 0.3s ease; /* Transition effect */
+}
+
+.github-link:hover {
+    color: #f79d65; /* Change color on hover */
+}
+
+/* Contact Form Section */
+#contact .container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background: #1a1a1a;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icons .icon {
+    font-size: 2em;
+    color: #00adb5;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.social-icons .icon:hover {
+    color: #f79d65;
+    transform: scale(1.1);
+}
+
+/* Contact Form Styling */
+.contact-form {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+    background: #222;
+    border: 1px solid #333;
+    color: #e0e0e0;
+    border-radius: 5px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.contact-form input[type="text"]:focus,
+.contact-form input[type="email"]:focus,
+.contact-form textarea:focus {
+    border-color: #00adb5;
+}
+
+.contact-form textarea {
+    resize: none;
+}
+
+.contact-form button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #f79d65;
+    color: #222;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.contact-form button:hover {
+    background-color: #00adb5;
+    transform: translateY(-2px);
+}
